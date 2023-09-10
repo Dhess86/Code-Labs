@@ -1,0 +1,82 @@
+class Player {
+    constructor(name, hp, mp, items){
+        this.name = name;
+        this.hp = hp;
+        this.mp = mp;
+        this.items = items;
+    }
+    speak(phrase) {
+        console.log(`${this.name} says: ${phrase}`);
+    }
+}
+
+const hanSolo = new Player("Han Solo", 100, 10, ["blaster"]);
+hanSolo.speak("Never tell me the odds!");
+console.log(hanSolo)
+console.log(Object.getOwnPropertyNames(hanSolo))
+console.log(Object.getOwnPropertyNames(hanSolo.__proto__))
+const dustin = new Player("Dustin", 10, 5, ["Computer"]);
+dustin.speak("Monkeys are the best animal!")
+console.log(dustin)
+console.log(Object.getOwnPropertyNames(dustin))
+console.log(Object.getOwnPropertyNames(dustin.__proto__))
+
+function AnotherPlayer(name, hp, mp, items) {
+    this.name = name;
+    this.hp = hp;
+    this.mp = mp;
+    this.items = items;
+  }
+
+  AnotherPlayer.prototype.speak = function(phrase){
+    console.log(`${this.name} says: ${phrase}`);
+}
+
+const darthVader = new AnotherPlayer("Darth Vader", 200, 50, ["Saber"]);
+darthVader.speak("fhsishifsh")
+console.log(darthVader)
+console.log(Object.getOwnPropertyNames(darthVader))
+console.log(Object.getOwnPropertyNames(darthVader.__proto__))
+
+
+
+
+
+// class Clock {
+//     constructor({ template }) {
+//       this.template = template;
+//     }
+  
+//     render() {
+//       let date = new Date();
+  
+//       let hours = date.getHours();
+//       if (hours < 10) hours = '0' + hours;
+  
+//       let mins = date.getMinutes();
+//       if (mins < 10) mins = '0' + mins;
+  
+//       let secs = date.getSeconds();
+//       if (secs < 10) secs = '0' + secs;
+  
+//       let output = this.template
+//         .replace('h', hours)
+//         .replace('m', mins)
+//         .replace('s', secs);
+  
+//       console.log(output);
+//     }
+  
+//     stop() {
+//       clearInterval(this.timer);
+//     }
+  
+//     start() {
+//       this.render();
+//       this.timer = setInterval(() => this.render(), 1000);
+//     }
+//   }
+  
+  
+//   let clock = new Clock({template: 'h:m:s'});
+//   clock.start();
